@@ -2,41 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Caribbean Ventures - Premium Consulting Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    /* Core Caribbean Ventures Brand Colors */
+    --background: 210 15% 7%;                    /* Charcoal black #0D1117 */
+    --foreground: 0 0% 90%;                      /* Soft white #E5E5E5 */
+    
+    --card: 210 11% 13%;                         /* Dark gray cards #1B1F23 */
+    --card-foreground: 0 0% 90%;                 /* Soft white text */
+    
+    --popover: 210 11% 13%;
+    --popover-foreground: 0 0% 90%;
+    
+    --primary: 188 37% 26%;                      /* Muted teal #2A555D */
+    --primary-foreground: 0 0% 95%;              /* White on teal */
+    
+    --secondary: 210 11% 13%;                    /* Dark gray */
+    --secondary-foreground: 0 0% 90%;            /* Soft white */
+    
+    --muted: 0 0% 63%;                          /* Light gray #A0A0A0 */
+    --muted-foreground: 0 0% 70%;               /* Lighter gray */
+    
+    --accent: 188 37% 26%;                      /* Muted teal accent */
+    --accent-foreground: 0 0% 95%;              /* White on accent */
+    
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 210 11% 18%;                      /* Subtle border */
+    --input: 210 11% 13%;                       /* Input background */
+    --ring: 188 37% 26%;                        /* Focus ring teal */
+    
+    --radius: 0.75rem;
+    
+    /* Caribbean Ventures Custom Design Tokens */
+    --primary-glow: 188 45% 35%;                /* Lighter teal for hover */
+    --surface-elevated: 210 11% 16%;            /* Elevated surfaces */
+    --text-subtle: 0 0% 70%;                    /* Subtle text */
+    
+    /* Beautiful Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-surface: linear-gradient(135deg, hsl(var(--card)), hsl(var(--surface-elevated)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(210 11% 9%) 100%);
+    
+    /* Premium Shadows */
+    --shadow-elegant: 0 20px 40px -12px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 8px 32px -8px hsl(210 15% 4% / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.1);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +120,68 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+    background: var(--gradient-hero);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Custom component utilities */
+  .surface-card {
+    background: var(--gradient-surface);
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--border));
+  }
+  
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+}
+
+@layer utilities {
+  .transition-smooth { transition: var(--transition-smooth); }
+  .transition-bounce { transition: var(--transition-bounce); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
