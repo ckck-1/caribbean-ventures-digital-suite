@@ -35,30 +35,23 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
-        <div className="max-w-5xl mx-auto space-y-12">
-          <div className="scroll-animate">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-bold text-gradient leading-[0.9] mb-8">
-              {t('hero.headline')}
-            </h1>
-          </div>
+        <div className="max-w-4xl mx-auto space-y-8">
+          <h1 className="text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight scroll-animate">
+            {t('hero.headline')}
+          </h1>
           
-          <div className="scroll-animate-left">
-            <p className="text-xl md:text-3xl lg:text-4xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
-              {t('hero.subheadline')}
-            </p>
-          </div>
+          <p className="text-xl md:text-2xl text-muted max-w-3xl mx-auto leading-relaxed scroll-animate-left">
+            {t('hero.subheadline')}
+          </p>
           
-          <div className="pt-8 scroll-animate-scale">
+          <div className="pt-4 scroll-animate-scale">
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="relative bg-gradient-to-r from-primary via-primary-glow to-primary hover:from-primary-glow hover:to-primary transition-all duration-500 text-xl px-12 py-8 rounded-full glow-effect hover-glow animate-pulse-glow group overflow-hidden"
+              className="bg-gradient-to-r from-primary to-primary-glow hover:shadow-lg hover:scale-105 transition-smooth text-lg px-8 py-6 rounded-full glow-effect hover-glow animate-pulse-glow"
             >
-              <span className="relative z-10 flex items-center">
-                {t('hero.cta')}
-                <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transform -skew-x-12 transition-all duration-700 group-hover:animate-shimmer" />
+              {t('hero.cta')}
+              <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </div>
         </div>
