@@ -28,27 +28,27 @@ const HeroSection = () => {
 
       {/* Floating 3D Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/10 rounded-full blur-xl float-animation" />
-        <div className="absolute top-3/4 right-1/4 w-48 h-48 bg-primary/5 rounded-full blur-2xl float-animation" style={{animationDelay: '2s'}} />
-        <div className="absolute top-1/2 left-3/4 w-24 h-24 bg-primary/15 rounded-full blur-lg float-animation" style={{animationDelay: '4s'}} />
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/10 rounded-full blur-xl float-animation parallax-element" data-speed="0.2" />
+        <div className="absolute top-3/4 right-1/4 w-48 h-48 bg-primary/5 rounded-full blur-2xl float-animation parallax-element" style={{animationDelay: '2s'}} data-speed="0.3" />
+        <div className="absolute top-1/2 left-3/4 w-24 h-24 bg-primary/15 rounded-full blur-lg float-animation parallax-element" style={{animationDelay: '4s'}} data-speed="0.1" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto space-y-8">
-          <h1 className="text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight fade-in-up">
+          <h1 className="text-5xl md:text-7xl font-heading font-bold text-foreground leading-tight scroll-animate">
             {t('hero.headline')}
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted max-w-3xl mx-auto leading-relaxed fade-in-up stagger-1">
+          <p className="text-xl md:text-2xl text-muted max-w-3xl mx-auto leading-relaxed scroll-animate-left">
             {t('hero.subheadline')}
           </p>
           
-          <div className="pt-4 fade-in-up stagger-2">
+          <div className="pt-4 scroll-animate-scale">
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="bg-gradient-to-r from-primary to-primary-glow hover:shadow-lg hover:scale-105 transition-smooth text-lg px-8 py-6 rounded-full glow-effect"
+              className="bg-gradient-to-r from-primary to-primary-glow hover:shadow-lg hover:scale-105 transition-smooth text-lg px-8 py-6 rounded-full glow-effect hover-glow animate-pulse-glow"
             >
               {t('hero.cta')}
               <ArrowRight className="ml-2 w-5 h-5" />

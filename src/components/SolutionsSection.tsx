@@ -32,8 +32,8 @@ const SolutionsSection = () => {
   return (
     <section id="solutions" className="py-24 bg-gradient-to-b from-background to-surface-elevated">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6 fade-in-up">
+        <div className="text-center mb-16 scroll-animate">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
             {t('solutions.title')}
           </h2>
         </div>
@@ -42,10 +42,13 @@ const SolutionsSection = () => {
           {solutions.map((solution, index) => (
             <div
               key={index}
-              className="fade-in-up"
-              style={{ animationDelay: solution.delay }}
+              className={`scroll-animate stagger-child ${
+                index === 0 ? 'scroll-animate-left' : 
+                index === 1 ? 'scroll-animate' : 
+                'scroll-animate-right'
+              }`}
             >
-              <Card className="surface-card h-full hover:scale-105 transition-smooth group cursor-pointer">
+              <Card className="surface-card h-full hover:scale-105 transition-smooth group cursor-pointer hover-lift hover-glow">
                 <CardHeader className="text-center pb-6">
                   <div className="w-24 h-24 mx-auto mb-6 rounded-lg overflow-hidden group-hover:scale-110 transition-smooth">
                     <img 
