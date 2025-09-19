@@ -36,8 +36,8 @@ const WhyChooseUsSection = () => {
   return (
     <section id="why-choose-us" className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 scroll-animate">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6 fade-in-up">
             {t('why.title')}
           </h2>
         </div>
@@ -48,9 +48,10 @@ const WhyChooseUsSection = () => {
             return (
               <div
                 key={index}
-                className="scroll-animate stagger-child"
+                className="fade-in-up"
+                style={{ animationDelay: feature.delay }}
               >
-                <Card className="surface-card h-full hover:scale-105 transition-smooth group text-center hover-lift hover-glow">
+                <Card className="surface-card h-full hover:scale-105 transition-smooth group text-center">
                   <CardHeader className="pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-primary-glow rounded-full flex items-center justify-center group-hover:scale-110 transition-smooth glow-effect">
                       <IconComponent className="w-8 h-8 text-white" />

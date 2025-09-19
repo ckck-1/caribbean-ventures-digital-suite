@@ -10,8 +10,8 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-24 bg-gradient-to-b from-surface-elevated to-background">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 scroll-animate">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6 fade-in-up">
             {t('contact.title')}
           </h2>
         </div>
@@ -19,8 +19,8 @@ const ContactSection = () => {
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Information */}
-            <div className="space-y-6 scroll-animate-left">
-              <Card className="surface-card hover-lift">
+            <div className="space-y-6 fade-in-up">
+              <Card className="surface-card">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-3 text-foreground">
                     <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-glow rounded-full flex items-center justify-center">
@@ -55,8 +55,8 @@ const ContactSection = () => {
             </div>
 
             {/* Map Placeholder */}
-            <div className="scroll-animate-right">
-              <Card className="surface-card h-full hover-lift">
+            <div className="fade-in-up stagger-1">
+              <Card className="surface-card h-full">
                 <CardContent className="p-0">
                   <div className="w-full h-full min-h-[300px] bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg flex items-center justify-center relative overflow-hidden">
                     {/* 3D Location Pin */}
@@ -85,7 +85,7 @@ const ContactSection = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="text-center mt-12 scroll-animate-scale">
+          <div className="text-center mt-12 fade-in-up stagger-2">
             <Button
               size="lg"
               className="bg-gradient-to-r from-primary to-primary-glow hover:shadow-lg hover:scale-105 transition-smooth text-lg px-8 py-6 rounded-full glow-effect"
